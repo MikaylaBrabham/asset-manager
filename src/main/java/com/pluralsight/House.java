@@ -1,6 +1,8 @@
 package com.pluralsight;
 
-public class House extends Assets{
+import java.util.Scanner;
+
+public class House extends Assets {
 
     //add given properties
     private String address;
@@ -54,10 +56,9 @@ public class House extends Assets{
     }
 
 
-
     // add value from the assets and overide to inut the conditionals
     @Override
-    private double getValue(){
+    private double getValue() {
 
         //enter an array to manage the prices and conditionals
         double[] prices = {180, 130, 90, 80};
@@ -65,5 +66,19 @@ public class House extends Assets{
         double pricesPerSqFt = prices[condition - 1];
         return (this.squareFoot * pricesPerSqFt) + (lotSize * .25);
 
+
     }
+
+    //add parameters for conditions so no one can put anything out of bounds
+    //add my scanner
+    Scanner myScanner = new scanner(System.in);
+    public void parametersForConditionals(int condition) {
+        while (condition < 1 || condition > 4) {
+            System.out.println("please enter a valid condition 1-4.");
+            System.out.println("Your condition is invalid. Please enter a new one!");
+            condition= myScanner.nextInt();
+            return;
+        }
+    }
+
 }

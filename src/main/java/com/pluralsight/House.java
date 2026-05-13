@@ -57,7 +57,7 @@ public class House extends Assets{
     @Override
     private double getValue(){
 
-        //enter a swicth to manage the prices and conditionals
+        //enter an array to manage the prices and conditionals
 
 
     }

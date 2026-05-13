@@ -22,7 +22,6 @@ public class House extends Assets {
 
     //add getters and setters
 
-
     public String getAddress() {
         return address;
     }
@@ -36,7 +35,17 @@ public class House extends Assets {
     }
 
     public void setCondition(int condition) {
-        this.condition = condition;
+        //add parameters for conditions so no one can put anything out of bounds
+        //add my scanner
+        Scanner myScanner = new Scanner(System.in);
+        while (condition < 1 || condition > 4) {
+            System.out.println("please enter a valid condition 1-4.");
+            System.out.println("Your condition is invalid. Please enter a new one!");
+            condition = myScanner.nextInt();
+            return;
+
+            //this.condition = condition;
+        }
     }
 
     public int getSquareFoot() {
@@ -55,6 +64,22 @@ public class House extends Assets {
         this.lotSize = lotSize;
     }
 
+    //add conditions set meaning in switch
+    public String conditionMeanings() {
+        switch (condition) {
+            case 1:
+                return "Excellent";
+
+            case 2:
+                return "Good";
+
+            case 3:
+                return "Fair";
+
+            default:
+                return "poor";
+        }
+    }
 
     // add value from the assets and overide to inut the conditionals
     @Override
@@ -66,19 +91,6 @@ public class House extends Assets {
         double pricesPerSqFt = prices[condition - 1];
         return (this.squareFoot * pricesPerSqFt) + (lotSize * .25);
 
-
     }
-
-    //add parameters for conditions so no one can put anything out of bounds
-    //add my scanner
-    Scanner myScanner = new scanner(System.in);
-    public void parametersForConditionals(int condition) {
-        while (condition < 1 || condition > 4) {
-            System.out.println("please enter a valid condition 1-4.");
-            System.out.println("Your condition is invalid. Please enter a new one!");
-            condition= myScanner.nextInt();
-            return;
-        }
-    }
-
 }
+

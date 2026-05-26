@@ -1,17 +1,43 @@
 package com.pluralsight;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.ArrayList;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+    //add main
+        public static void main(String[] args) {
+
+            //add arrat
+            ArrayList<Assets> assets = new ArrayList<>();
+
+
+            //add my house and car
+            House house = new House(
+                            "My House",
+                            "2020-01-01",
+                            250000,
+                            "123 Main St",
+                            1,
+                            2000,
+                            5000);
+
+            Vehicle car = new Vehicle(
+                            "Honda Civic",
+                            "2021-05-05",
+                            22000,
+                            2021,
+                            "Honda Civic",
+                            40000);
+
+            assets.add(house);
+            assets.add(car);
+
+            for (Assets asset : assets) {
+
+                System.out.println(asset.getDescription());
+
+                System.out.println(asset.getValue());
+
+                System.out.println();
+            }
         }
     }
-}

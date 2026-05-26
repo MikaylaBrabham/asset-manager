@@ -83,13 +83,13 @@ public class House extends Assets {
 
     // add value from the assets and overide to inut the conditionals
     @Override
-    private double getValue() {
+    public double getValue() {
 
         //enter an array to manage the prices and conditionals
         double[] prices = {180, 130, 90, 80};
         //array starts at 1 thats why -1
         double pricesPerSqFt = prices[condition - 1];
-        return (this.squareFoot * pricesPerSqFt) + (lotSize * .25);
+        return (squareFoot * pricesPerSqFt) + (lotSize * .25);
 
     }
 }
